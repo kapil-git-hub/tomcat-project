@@ -31,8 +31,10 @@ pipeline {
       steps {
         script{
           sh "pwd"
-          sh "ls"
-          sh "kubectl apply -f ${PWD}/workspace/deploy_application/deployment.yaml"
+          sh "sudo su"
+          sh "kubectl apply -f /var/lib/jenkins/workspace/deploy_application/deployment.yaml"
+          sh "kubectl expose deployment tomcat-deployment --type=NodePort --name=tomcat-service"
+          sh "minikube service tomcat-service --url"
         }
       }
     }
