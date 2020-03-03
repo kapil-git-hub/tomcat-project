@@ -30,6 +30,8 @@ pipeline {
     stage ('Deploy App') {
       steps {
         script{
+          sh "pwd"
+          sh "ls"
           sh "kubectl apply -f deployment.yaml"
         }
       }
