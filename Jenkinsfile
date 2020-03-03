@@ -32,9 +32,10 @@ pipeline {
         script{
           sh "pwd"
           sh "whoami"
-          sh "kubectl apply -f /var/lib/jenkins/workspace/deploy_application/deployment.yml"
-          sh "kubectl expose deployment tomcat-deployment --type=NodePort --name=tomcat-service"
-          sh "minikube service tomcat-service --url"
+          //sh "kubectl apply -f /var/lib/jenkins/workspace/deploy_application/deployment.yml"
+          sh "kubectl apply -f https://k8s.io/examples/application/deployment-scale.yaml"
+          //sh "kubectl expose deployment tomcat-deployment --type=NodePort --name=tomcat-service"
+          //sh "minikube service tomcat-service --url"
         }
       }
     }
