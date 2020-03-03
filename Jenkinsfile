@@ -32,7 +32,7 @@ pipeline {
         script{
           sh "pwd"
           sh "ls"
-          sh "kubectl apply -f ${PWD}/deployment.yaml"
+          sh "kubectl apply -f ${PWD}/workspace/deploy_application/deployment.yaml"
         }
       }
     }
