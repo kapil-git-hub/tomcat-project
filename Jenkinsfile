@@ -18,12 +18,19 @@ pipeline {
         }
       }
     }
-    stage('Deploy Image') {
+    stage('Push Image') {
       steps{
         script {
           docker.withRegistry( '', registryCredential ) {
             dockerImage.push()
           }
+        }
+      }
+    }
+    stage ('Deploy App') {
+      steps {
+        script{
+          sh "kubectl apply -f deployment.yaml"
         }
       }
     }
