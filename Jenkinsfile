@@ -32,7 +32,7 @@ pipeline {
         script{
           sh "pwd"
           sh "whoami"
-          sh "sudo kubectl apply -f deployment.yml"
+          sh "kubectl apply -f deployment.yml"
           //sh "kubectl apply -f https://k8s.io/examples/application/deployment-scale.yaml"
           //sh "kubectl expose deployment tomcat-deployment --type=NodePort --name=tomcat-service"
           //sh "minikube service tomcat-service --url"
